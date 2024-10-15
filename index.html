@@ -52,7 +52,7 @@
 					blending: THREE.AdditiveBlending
 				} );
 
-				const size = uniform( 0.08 );
+				const size = uniform( 0.05 );
 				material.scaleNode = range( 0, 1 ).mul( size );
 
 				const time = timerLocal();
@@ -81,6 +81,7 @@
 				material.colorNode = vec4( colorFinal, alpha );
 
 				const mesh = new THREE.InstancedMesh( new THREE.PlaneGeometry( 1, 1 ), material, 20000 );
+				mesh.position.set(2, 0, 0);
 				scene.add( mesh );
 
 				// debug
