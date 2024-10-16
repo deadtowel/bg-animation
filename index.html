@@ -7,13 +7,6 @@
 		<link type="text/css" rel="stylesheet" href="main.css">
 	</head>
 	<body>
-
-		<!-- <div id="info">
-			<a href="https://threejs.org" target="_blank" rel="noopener">three.js webgpu</a> - galaxy
-			<br>
-			Based on <a href="https://threejs-journey.com/lessons/animated-galaxy" target="_blank" rel="noopener">Three.js Journey</a> lessons
-		</div> -->
-
 		<script type="importmap">
 			{
 				"imports": {
@@ -42,7 +35,7 @@
 				camera.position.set( 4, 2, 5 );
 
 				scene = new THREE.Scene();
-				scene.background = new THREE.Color( 0x201919 );
+				scene.background = new THREE.Color( 0x0d0d1a );
 
 				// galaxy
 
@@ -81,30 +74,8 @@
 				material.colorNode = vec4( colorFinal, alpha );
 
 				const mesh = new THREE.InstancedMesh( new THREE.PlaneGeometry( 1, 1 ), material, 20000 );
-				mesh.position.set(2, 0, 0);
+				mesh.position.set(2, 0.5, 0);
 				scene.add( mesh );
-
-				// debug
-
-				// const gui = new GUI();
-
-				// gui.add( size, 'value', 0, 1, 0.001 ).name( 'size' );
-
-				// gui.addColor( { color: colorInside.value.getHex( THREE.SRGBColorSpace ) }, 'color' )
-				// 	.name( 'colorInside' )
-				// 	.onChange( function ( value ) {
-
-				// 		colorInside.value.set( value );
-
-				// 	} );
-
-				// gui.addColor( { color: colorOutside.value.getHex( THREE.SRGBColorSpace ) }, 'color' )
-				// 	.name( 'colorOutside' )
-				// 	.onChange( function ( value ) {
-
-				// 		colorOutside.value.set( value );
-
-				// 	} );
 
 				// renderer
 
@@ -116,9 +87,6 @@
 
 				controls = new OrbitControls( camera, renderer.domElement );
 				controls.enabled = false;
-				// controls.enableDamping = true;
-				// controls.minDistance = 0.1;
-				// controls.maxDistance = 50;
 
 				window.addEventListener( 'resize', onWindowResize );
 
@@ -134,8 +102,6 @@
 			}
 
 			async function animate() {
-
-				//controls.update();
 
 				renderer.render( scene, camera );
 
