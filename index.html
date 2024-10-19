@@ -55,7 +55,7 @@
 
 				const branches = 3;
 				const branchAngle = range( 0, branches ).floor().mul( PI2.div( branches ) );
-				const angle = branchAngle.add( time.mul( radiusRatio.oneMinus() ).mul(0.4) );
+				const angle = branchAngle.add( time.mul( radiusRatio.oneMinus() ) );
 
 				const position = vec3(
 					cos( angle ),
@@ -74,7 +74,7 @@
 				material.colorNode = vec4( colorFinal, alpha );
 
 				const mesh = new THREE.InstancedMesh( new THREE.PlaneGeometry( 1, 1 ), material, 20000 );
-				mesh.position.set(2, 0.5, 0);
+				mesh.position.set(3, 0.5, 0);
 				scene.add( mesh );
 
 				// renderer
