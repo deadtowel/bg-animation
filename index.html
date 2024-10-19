@@ -55,7 +55,7 @@
 
 				const branches = 3;
 				const branchAngle = range( 0, branches ).floor().mul( PI2.div( branches ) );
-				const angle = branchAngle.add( time.mul( radiusRatio.oneMinus() ) );
+				const angle = branchAngle.add( time.mul( radiusRatio.oneMinus() ).mul(0.4) );
 
 				const position = vec3(
 					cos( angle ),
@@ -67,7 +67,7 @@
 
 				material.positionNode = position.add( randomOffset );
 
-				const colorInside = uniform( color( '#ffa575' ) );
+				const colorInside = uniform( color( '#8c5a3f' ) );
 				const colorOutside = uniform( color( '#311599' ) );
 				const colorFinal = mix( colorInside, colorOutside, radiusRatio.oneMinus().pow( 2 ).oneMinus() );
 				const alpha = float( 0.1 ).div( uv().sub( 0.5 ).length() ).sub( 0.2 );
