@@ -55,7 +55,7 @@
 
 				const branches = 3;
 				const branchAngle = range( 0, branches ).floor().mul( PI2.div( branches ) );
-				const angle = branchAngle.add( time.mul( radiusRatio.oneMinus() ) );
+				const angle = branchAngle.add( time.mul( radiusRatio.oneMinus() ).mul(0.4) );
 
 				const position = vec3(
 					cos( angle ),
